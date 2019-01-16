@@ -6,7 +6,7 @@
         
         <nav>
             <ul>
-                <li><a href="#"><img src="../../images/menu1.png" alt=""><span>新闻资讯</span></a></li>
+                <li><a href="#/home/newsList"><img src="../../images/menu1.png" alt=""><span>新闻资讯</span></a></li>
                 <li><a href="#"><img src="../../images/menu2.png" alt=""><span>图片分享</span></a></li>
                 <li><a href="#"><img src="../../images/menu3.png" alt=""><span>商品购买</span></a></li>
                 <li><a href="#"><img src="../../images/menu4.png" alt=""><span>留言反馈</span></a></li>
@@ -25,8 +25,19 @@
                     {src: '../../images/goods3.jpg'},
                     {src: '../../images/goods4.jpg'},
                     {src: '../../images/goods5.jpg'},
-                    {src: '../../images/goods6.jpg'}
+                    {src: '../../images/goods6.jpg'},
+                    {src: '../../images/goods2.jpg'}
                 ]
+            }
+        },
+        created: function() {
+            this.getGoodsList();
+        },
+        methods: {
+            getGoodsList: function () {
+                this.$http.get('./data/goodsList.json').then(function (res) {
+                    console.log(res.body);
+                })
             }
         }
     }
