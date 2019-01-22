@@ -1,14 +1,12 @@
 <template>
     <div>
-        <mt-swipe :auto="3000">
-            <mt-swipe-item v-for="items in goodsList" :key="items.src"><a href="#"><img :src="items.src" alt=""></a></mt-swipe-item>
-        </mt-swipe>
+        <swipe :goodsList="goodsList"></swipe>
         
         <nav>
             <ul>
                 <li><a href="#/home/newsList"><img src="../../images/menu1.png" alt=""><span>新闻资讯</span></a></li>
-                <li><a href="#"><img src="../../images/menu2.png" alt=""><span>图片分享</span></a></li>
-                <li><a href="#"><img src="../../images/menu3.png" alt=""><span>商品购买</span></a></li>
+                <li><a href="#/home/picShare"><img src="../../images/menu2.png" alt=""><span>图片分享</span></a></li>
+                <li><a href="#/home/buyGoods"><img src="../../images/menu3.png" alt=""><span>商品购买</span></a></li>
                 <li><a href="#"><img src="../../images/menu4.png" alt=""><span>留言反馈</span></a></li>
                 <li><a href="#"><img src="../../images/menu5.png" alt=""><span>视频专区</span></a></li>
                 <li><a href="#"><img src="../../images/menu6.png" alt=""><span>联系我们</span></a></li>
@@ -18,6 +16,8 @@
 </template>
 
 <script>
+    import swipe from '../global/swipe.vue';
+
     export default {
         data: function () {
             return {
@@ -29,6 +29,9 @@
                     {src: '../../images/goods2.jpg'}
                 ]
             }
+        },
+        components: {
+            swipe: swipe
         },
         created: function() {
             this.getGoodsList();
@@ -44,32 +47,6 @@
 </script>
 
 <style lang="less" scoped>
- .mint-swipe {
-     height: 200px;
-
-    .mint-swipe-item {
-        background-color: red;
-
-        &:nth-last-of-type(2) {
-            background-color: yellow;
-        }
-        &:nth-last-of-type(3) {
-            background-color: pink;
-        }
-
-        a {
-            display: block;
-            width: 100%;
-            height: 100%;
-
-            img {
-                display: block;
-                width: 100%;
-                height: 100%;
-            }
-        }
-    }
- }
 nav {
 
     margin-top: 10px;
